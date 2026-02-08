@@ -1,0 +1,9 @@
+[
+  {
+    "id": "user-service-git",
+    "name": "User Service Git Repo",
+    "url": "https://github.com/sergeimeshe2-spec/user-service.git",
+    "branch": "main",
+    "enabled": true
+  }
+]

@@ -86,13 +86,15 @@ services:
     environment:
       - QUARKUS_PROFILE=docker-compose
       - MICROCKS_URL=http://microcks:8080
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:19092
+      - KAFKA_BOOTSTRAP_SERVER=kafka:19092
+    volumes:
+      - ./config:/deployments/config
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8081/q/health/ready"]
-      start_period: 10s
+      start_period: 30s
       interval: 10s
       timeout: 2s
-      retries: 3
+      retries: 10
 
   # User Service
   user-service:
@@ -107,7 +109,7 @@ services:
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:19092
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8081/api/v1/users"]
       start_period: 30s
       interval: 10s
       timeout: 3s

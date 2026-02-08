@@ -7,7 +7,7 @@ set -e
 # Configuration
 GITHUB_REPO="https://github.com/sergeimeshe2-spec/user-service.git"
 LOCAL_REPO="/tmp/user-service-specs"
-MICROCKS_URL="http://localhost:8080"
+MICROCKS_URL="http://microcks:8080"
 SPECS_DIR="$LOCAL_REPO/src/main/resources/specs"
 LAST_HASH_FILE="/tmp/user-service-specs-last-hash"
 
