@@ -68,6 +68,27 @@ paths:
                     type: integer
                   offset:
                     type: integer
+              example:
+                data:
+                  - userId: "550e8400-e29b-41d4-a716-446655440000"
+                    username: "john_doe"
+                    email: "john@example.com"
+                    firstName: "John"
+                    lastName: "Doe"
+                    bio: "Software developer"
+                    createdAt: "2024-01-15T10:30:00Z"
+                    updatedAt: "2024-02-01T14:20:00Z"
+                  - userId: "550e8400-e29b-41d4-a716-446655440001"
+                    username: "jane_smith"
+                    email: "jane@example.com"
+                    firstName: "Jane"
+                    lastName: "Smith"
+                    bio: "Product manager"
+                    createdAt: "2024-01-20T09:15:00Z"
+                    updatedAt: "2024-02-05T11:45:00Z"
+                total: 2
+                limit: 10
+                offset: 0
 
     post:
       summary: Создать нового пользователя
@@ -87,6 +108,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+              example:
+                userId: "550e8400-e29b-41d4-a716-446655440002"
+                username: "new_user"
+                email: "newuser@example.com"
+                firstName: "New"
+                lastName: "User"
+                bio: "Just joined!"
+                createdAt: "2024-02-08T12:00:00Z"
+                updatedAt: "2024-02-08T12:00:00Z"
           headers:
             Location:
               description: URL созданного пользователя
@@ -120,6 +150,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+              example:
+                userId: "550e8400-e29b-41d4-a716-446655440000"
+                username: "john_doe"
+                email: "john@example.com"
+                firstName: "John"
+                lastName: "Doe"
+                bio: "Software developer"
+                createdAt: "2024-01-15T10:30:00Z"
+                updatedAt: "2024-02-01T14:20:00Z"
         '404':
           description: Пользователь не найден
           content:
@@ -152,6 +191,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+              example:
+                userId: "550e8400-e29b-41d4-a716-446655440000"
+                username: "john_doe_updated"
+                email: "john.doe@example.com"
+                firstName: "John"
+                lastName: "Doe"
+                bio: "Senior software developer"
+                createdAt: "2024-01-15T10:30:00Z"
+                updatedAt: "2024-02-08T15:30:00Z"
         '404':
           description: Пользователь не найден
           content:
@@ -223,6 +271,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+              example:
+                userId: "550e8400-e29b-41d4-a716-446655440000"
+                username: "john_doe"
+                email: "john.newemail@example.com"
+                firstName: "Johnny"
+                lastName: "Doe"
+                bio: "Software developer and open source contributor"
+                createdAt: "2024-01-15T10:30:00Z"
+                updatedAt: "2024-02-08T16:00:00Z"
         '404':
           description: Пользователь не найден
           content:
@@ -332,3 +389,7 @@ components:
       required:
         - code
         - message
+      example:
+        code: VALIDATION_ERROR
+        message: Username должен быть от 3 до 50 символов
+        timestamp: "2024-02-08T12:00:00Z"
